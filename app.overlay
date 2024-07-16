@@ -1,10 +1,7 @@
 /* Step 4.2 - choose CDC ACM for mcumgr */
-/* Step 8.1 - Add external flash */
 / {
 	chosen {
 		zephyr,uart-mcumgr = &cdc_acm_uart0;
-		nordic,pm-ext-flash = &mx25r64;
-
 	};
 };
 
@@ -13,4 +10,12 @@
 	cdc_acm_uart0: cdc_acm_uart0 {
 		compatible = "zephyr,cdc-acm-uart";
 	};
+};
+
+&button0 {
+	gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
+};
+
+&led0 {
+	gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
 };
